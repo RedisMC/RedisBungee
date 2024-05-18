@@ -94,7 +94,7 @@ public class RedisBungee extends Plugin implements RedisBungeePlugin<ProxiedPlay
     }
 
     @Override
-    public PlayerDataManager<ProxiedPlayer, ?, ?, ?, ?, ?, ?> playerDataManager() {
+    public PlayerDataManager<ProxiedPlayer, ?, ?, ?, ?, ?, ?, ?> playerDataManager() {
         return this.playerDataManager;
     }
 
