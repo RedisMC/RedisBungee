@@ -267,7 +267,9 @@ public abstract class PlayerDataManager<P, LE, DE, PS extends IPubSubMessageEven
                 public Multimap<String, UUID> doPooledPipeline(Pipeline pipeline) {
                     HashMap<UUID, Response<String>> responses = new HashMap<>();
                     for (UUID uuid : uuids) {
-                        responses.put(uuid, pipeline.hget("redis-bungee::" + networkId + "::player::" + uuid + "::data", "server"));
+                        Response<String> server = pipeline.hget("redis-bungee::" + networkId + "::player::" + uuid + "::data", "server");
+                        if (server != null)
+                            responses.put(uuid, pipeline.hget("redis-bungee::" + networkId + "::player::" + uuid + "::data", "server"));
                     }
                     pipeline.sync();
                     responses.forEach((uuid, response) -> {
