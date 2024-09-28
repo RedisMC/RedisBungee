@@ -30,7 +30,7 @@ import net.md_5.bungee.event.EventHandler;
 import java.util.concurrent.TimeUnit;
 
 
-public class BungeePlayerDataManager extends PlayerDataManager<ProxiedPlayer, PostLoginEvent, PlayerDisconnectEvent, PubSubMessageEvent, PlayerChangedServerNetworkEvent, PlayerLeftNetworkEvent, ServerConnectedEvent, PlayerJoinedNetworkEvent> implements Listener {
+public class BungeePlayerDataManager extends PlayerDataManager<ProxiedPlayer> implements Listener {
 
     public BungeePlayerDataManager(RedisBungeePlugin<ProxiedPlayer> plugin) {
         super(plugin);

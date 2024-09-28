@@ -29,7 +29,7 @@ import net.kyori.adventure.text.Component;
 
 import java.util.concurrent.TimeUnit;
 
-public class VelocityPlayerDataManager extends PlayerDataManager<Player, PostLoginEvent, DisconnectEvent, PubSubMessageEvent, PlayerChangedServerNetworkEvent, PlayerLeftNetworkEvent, ServerConnectedEvent, PlayerJoinedNetworkEvent> {
+public class VelocityPlayerDataManager extends PlayerDataManager<Player> {
     public VelocityPlayerDataManager(RedisBungeePlugin<Player> plugin) {
         super(plugin);
     }

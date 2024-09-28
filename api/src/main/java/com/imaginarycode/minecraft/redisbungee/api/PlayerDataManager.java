@@ -32,7 +32,7 @@ import java.net.InetAddress;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public abstract class PlayerDataManager<P, LE, DE, PS extends IPubSubMessageEvent, SC extends IPlayerChangedServerNetworkEvent, NJE extends IPlayerLeftNetworkEvent, CE, PJN extends IPlayerJoinedNetworkEvent> {
+public abstract class PlayerDataManager<P> {
 
     protected final RedisBungeePlugin<P> plugin;
     private final Object SERVERS_TO_PLAYERS_KEY = new Object();
@@ -56,20 +56,20 @@ public abstract class PlayerDataManager<P, LE, DE, PS extends IPubSubMessageEven
 
     // handle network wide
     // server change
-    //l public abstract void onPlayerChangedServerNetworkEvent(SC event);
+    // public void onPlayerChangedServerNetworkEvent
 
-    // public abstract void onNetworkPlayerQuit(NJE event);
+    // public void onNetworkPlayerQuit
 
-    // public abstract void onNetworkPlayerJoin(PJN event);
+    // public void onNetworkPlayerJoin
 
     // local events
-    //public abstract void onPubSubMessageEvent(PS event);
+    // public void onPubSubMessageEvent
 
-    //public abstract void onServerConnectedEvent(CE event);
+    // public void onServerConnectedEvent
 
-    //public abstract void onLoginEvent(LE event);
+    // public void onLoginEvent
 
-    //public abstract void onDisconnectEvent(DE event);
+    // public void onDisconnectEvent
 
     protected void handleNetworkPlayerServerChange(IPlayerChangedServerNetworkEvent event) {
         this.serverCache.invalidate(event.getUuid());
