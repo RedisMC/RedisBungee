@@ -1,7 +1,7 @@
 plugins {
     java
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("xyz.jpenilla.run-waterfall") version "2.0.0"
+    //id("xyz.jpenilla.run-waterfall") version "2.0.0"
 }
 
 dependencies {
@@ -24,11 +24,12 @@ java {
 }
 
 tasks {
-    runWaterfall {
-        waterfallVersion("1.20")
-        environment["REDISBUNGEE_PROXY_ID"] = "bungeecord-1"
-        environment["REDISBUNGEE_NETWORK_ID"] = "dev"
-    }
+
+    //runWaterfall {
+        //waterfallVersion("1.20")
+        //environment["REDISBUNGEE_PROXY_ID"] = "bungeecord-1"
+        //["REDISBUNGEE_NETWORK_ID"] = "dev"
+    //}
     compileJava {
         options.encoding = Charsets.UTF_8.name()
         options.release.set(17)
