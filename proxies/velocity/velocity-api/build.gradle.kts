@@ -5,10 +5,11 @@ plugins {
 
 dependencies {
     api(project(":RedisBungee-API")) {
-        // Since velocity already includes guava / configurate exlude them
+        // Since velocity already includes guava / configurate / guava exlude them
         exclude("com.google.guava", "guava")
         exclude("com.google.code.gson", "gson")
         exclude("org.spongepowered", "configurate-yaml")
+        exclude("com.github.ben-manes.caffeine", "caffeine")
         // exclude also adventure api
         exclude("net.kyori", "adventure-api")
         exclude("net.kyori", "adventure-text-serializer-gson")

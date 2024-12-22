@@ -42,22 +42,22 @@ dependencyResolutionManagement {
             name = "sonatype"
             url = uri("https://oss.sonatype.org/content/repositories/snapshots")
         }
+
         maven {
-            name = "aikar repo"
-            url = uri("https://repo.aikar.co/content/groups/aikar/")
+            url = uri("https://jitpack.io")
         }
 
     }
     versionCatalogs {
-        val jedisVersion = "5.1.2"
+        val jedisVersion = "5.2.0"
         val configurateVersion = "3.7.3"
         val guavaVersion = "31.1-jre"
         val okHttpVersion = "2.7.5"
         val caffeineVersion = "3.1.8"
-        val adventureVersion = "4.16.0"
-        val acf = "0.5.1-SNAPSHOT"
+        val adventureVersion = "4.17.0"
+        val acf = "e2005dd62d" // use our own fork 'same upstream with jitpack file only'
         val bungeecordApiVersion = "1.21-R0.1-SNAPSHOT"
-        val velocityVersion = "3.3.0-SNAPSHOT";
+        val velocityVersion = "3.4.0-SNAPSHOT";
 
 
         create("libs") {
@@ -74,9 +74,9 @@ dependencyResolutionManagement {
             library("adventure-plain", "net.kyori:adventure-text-serializer-plain:$adventureVersion")
             library("adventure-miniMessage", "net.kyori:adventure-text-minimessage:$adventureVersion")
 
-            library("acf-core", "co.aikar:acf-core:$acf")
-            library("acf-bungeecord", "co.aikar:acf-bungee:$acf")
-            library("acf-velocity", "co.aikar:acf-velocity:$acf")
+            library("acf-core", "com.github.ProxioDev.commands:acf-core:$acf")
+            library("acf-bungeecord", "com.github.ProxioDev.commands:acf-bungee:$acf")
+            library("acf-velocity", "com.github.ProxioDev.commands:acf-velocity:$acf")
 
             library("platform-bungeecord","net.md-5:bungeecord-api:$bungeecordApiVersion")
             library("adventure-platforms-bungeecord", "net.kyori:adventure-platform-bungeecord:4.3.2")

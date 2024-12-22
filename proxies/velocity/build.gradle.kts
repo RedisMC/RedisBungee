@@ -39,7 +39,6 @@ tasks {
         relocate("com.squareup.okhttp", "com.imaginarycode.minecraft.redisbungee.internal.okhttp")
         relocate("okio", "com.imaginarycode.minecraft.redisbungee.internal.okio")
         relocate("org.json", "com.imaginarycode.minecraft.redisbungee.internal.json")
-        relocate("com.github.benmanes.caffeine", "com.imaginarycode.minecraft.redisbungee.internal.caffeine")
         // acf shade
         relocate("co.aikar.commands", "com.imaginarycode.minecraft.redisbungee.internal.acf.commands")
     }
