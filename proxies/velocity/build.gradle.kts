@@ -21,7 +21,7 @@ java {
 
 tasks {
     runVelocity {
-        velocityVersion("3.3.0-SNAPSHOT")
+        velocityVersion("3.4.0-SNAPSHOT")
         environment["REDISBUNGEE_PROXY_ID"] = "velocity-1"
         environment["REDISBUNGEE_NETWORK_ID"] = "dev"
     }
