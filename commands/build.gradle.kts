@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":RedisBungee-API"))
+    compileOnly(project(":RedisBungee-API"))
     implementation(libs.acf.core)
 }
 

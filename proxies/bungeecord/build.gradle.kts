@@ -46,7 +46,8 @@ tasks {
         relocate("redis.clients.jedis", "com.imaginarycode.minecraft.redisbungee.internal.jedis")
         relocate("redis.clients.util", "com.imaginarycode.minecraft.redisbungee.internal.jedisutil")
         relocate("org.apache.commons.pool", "com.imaginarycode.minecraft.redisbungee.internal.commonspool")
-        relocate("com.squareup.okhttp3", "com.imaginarycode.minecraft.redisbungee.internal.okhttp3")
+        relocate("okhttp3", "com.imaginarycode.minecraft.redisbungee.internal.okhttp3")
+        relocate("kotlin", "com.imaginarycode.minecraft.redisbungee.internal.kotlin")
         relocate("okio", "com.imaginarycode.minecraft.redisbungee.internal.okio")
         relocate("org.json", "com.imaginarycode.minecraft.redisbungee.internal.json")
         // configurate shade
