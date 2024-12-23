@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream
 plugins {
     `java-library`
     `maven-publish`
-    id("net.kyori.blossom") version "1.2.0"
+    alias(libs.plugins.net.kyori.blossom)
 
 }
 
@@ -12,7 +12,7 @@ dependencies {
     api(libs.guava)
     api(libs.jedis)
     api(libs.okhttp)
-    api(libs.configurate)
+    api(libs.configurateV3)
     api(libs.caffeine)
     api(libs.adventure.api)
     api(libs.adventure.gson)
@@ -50,7 +50,7 @@ tasks {
         options.use()
         options.isDocFilesSubDirs = true
         val jedisVersion = libs.jedis.get().version
-        val configurateVersion = libs.configurate.get().version
+        val configurateVersion = libs.configurateV3.get().version
         val guavaVersion = libs.guava.get().version
         val adventureVersion = libs.adventure.plain.get().version
         options.links(

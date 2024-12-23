@@ -1,0 +1,36 @@
+[versions]
+guava = "31.1-jre"
+jedis = "5.2.0"
+okhttp = "2.7.5"
+configurateV3 = "3.7.3"
+caffeine = "3.1.8"
+adventure = "4.18.0"
+adventure-bungeecord-platform = "4.3.4"
+acf = "e2005dd62d"
+bungeecordApi = "1.21-R0.1-SNAPSHOT"
+velocity = "3.4.0-SNAPSHOT"
+
+[plugins]
+net-kyori-blossom = { id = "net.kyori.blossom", version = "1.2.0" }
+
+[libraries]
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+jedis = { module = "redis.clients:jedis", version.ref = "jedis" }
+okhttp = { module = "com.squareup.okhttp:okhttp", version.ref = "okhttp" }
+configurateV3 = { module = "org.spongepowered:configurate-yaml", version.ref = "configurateV3" }
+caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version.ref = "caffeine" }
+
+adventure-api = { module = "net.kyori:adventure-api", version.ref = "adventure" }
+adventure-gson = { module = "net.kyori:adventure-text-serializer-gson", version.ref = "adventure" }
+adventure-legacy = { module = "net.kyori:adventure-text-serializer-legacy", version.ref = "adventure" }
+adventure-plain = { module = "net.kyori:adventure-text-serializer-plain", version.ref = "adventure" }
+adventure-miniMessage = { module = "net.kyori:adventure-text-minimessage", version.ref = "adventure" }
+
+acf-core = { module = "com.github.ProxioDev.commands:acf-core", version.ref = "acf" }
+acf-bungeecord = { module = "com.github.ProxioDev.commands:acf-bungee", version.ref = "acf" }
+acf-velocity = { module = "com.github.ProxioDev.commands:acf-velocity", version.ref = "acf" }
+
+platform-bungeecord = { module = "net.md-5:bungeecord-api", version.ref = "bungeecordApi" }
+adventure-platforms-bungeecord = { module = "net.kyori:adventure-platform-bungeecord", version.ref = "adventure-bungeecord-platform" }
+
+platform-velocity = { module = "com.velocitypowered:velocity-api", version.ref = "velocity" }
