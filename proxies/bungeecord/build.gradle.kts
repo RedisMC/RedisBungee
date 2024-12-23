@@ -1,7 +1,6 @@
 plugins {
     java
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    //id("xyz.jpenilla.run-waterfall") version "2.0.0"
+    alias(libs.plugins.shadow)
 }
 
 dependencies {

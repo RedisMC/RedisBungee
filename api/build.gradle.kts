@@ -1,10 +1,9 @@
-import java.time.Instant
 import java.io.ByteArrayOutputStream
 
 plugins {
     `java-library`
     `maven-publish`
-    alias(libs.plugins.net.kyori.blossom)
+    alias(libs.plugins.blossom)
 
 }
 

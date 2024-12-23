@@ -1,7 +1,7 @@
 plugins {
     java
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("xyz.jpenilla.run-velocity") version "2.0.0"
+    alias(libs.plugins.shadow)
+    alias(libs.plugins.run.velocity)
 }
 
 dependencies {

@@ -11,7 +11,9 @@ bungeecordApi = "1.21-R0.1-SNAPSHOT"
 velocity = "3.4.0-SNAPSHOT"
 
 [plugins]
-net-kyori-blossom = { id = "net.kyori.blossom", version = "1.2.0" }
+blossom = { id = "net.kyori.blossom", version = "1.2.0" }
+shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
+run-velocity = { id = "xyz.jpenilla.run-velocity", version = "2.0.0" }
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
