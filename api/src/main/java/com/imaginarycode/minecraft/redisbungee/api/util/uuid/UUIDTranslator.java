@@ -61,7 +61,7 @@ public final class UUIDTranslator {
         CachedUUIDEntry cachedUUIDEntry = nameToUuidMap.get(player.toLowerCase());
         if (cachedUUIDEntry != null) {
             if (!cachedUUIDEntry.expired())
-                return cachedUUIDEntry.getUuid();
+                return cachedUUIDEntry.uuid();
             else
                 nameToUuidMap.remove(player);
         }
@@ -93,11 +93,11 @@ public final class UUIDTranslator {
                     if (entry.expired()) {
                         unifiedJedis.hdel("uuid-cache", player.toLowerCase());
                         // Doesn't hurt to also remove the UUID entry as well.
-                        unifiedJedis.hdel("uuid-cache", entry.getUuid().toString());
+                        unifiedJedis.hdel("uuid-cache", entry.uuid().toString());
                     } else {
                         nameToUuidMap.put(player.toLowerCase(), entry);
-                        uuidToNameMap.put(entry.getUuid(), entry);
-                        return entry.getUuid();
+                        uuidToNameMap.put(entry.uuid(), entry);
+                        return entry.uuid();
                     }
                 }
 
@@ -141,7 +141,7 @@ public final class UUIDTranslator {
         CachedUUIDEntry cachedUUIDEntry = uuidToNameMap.get(player);
         if (cachedUUIDEntry != null) {
             if (!cachedUUIDEntry.expired())
-                return cachedUUIDEntry.getName();
+                return cachedUUIDEntry.name();
             else
                 uuidToNameMap.remove(player);
         }
@@ -159,11 +159,11 @@ public final class UUIDTranslator {
                         unifiedJedis.hdel("uuid-cache", player.toString());
                         // Doesn't hurt to also remove the named entry as well.
                         // TODO: Since UUIDs are fixed, we could look up the name and see if the UUID matches.
-                        unifiedJedis.hdel("uuid-cache", entry.getName());
+                        unifiedJedis.hdel("uuid-cache", entry.name());
                     } else {
-                        nameToUuidMap.put(entry.getName().toLowerCase(), entry);
+                        nameToUuidMap.put(entry.name().toLowerCase(), entry);
                         uuidToNameMap.put(player, entry);
-                        return entry.getName();
+                        return entry.name();
                     }
                 }
 

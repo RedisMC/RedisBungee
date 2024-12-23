@@ -12,9 +12,9 @@ package com.imaginarycode.minecraft.redisbungee.api.util.uuid;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.ResponseBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.ResponseBody;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -22,12 +22,8 @@ import java.util.List;
 import java.util.UUID;
 
 public class NameFetcher {
-    private static OkHttpClient httpClient;
+    private static final OkHttpClient httpClient = new OkHttpClient();
     private static final Gson gson = new Gson();
-
-    public static void setHttpClient(OkHttpClient httpClient) {
-        NameFetcher.httpClient = httpClient;
-    }
 
     public static List<String> nameHistoryFromUuid(UUID uuid) throws IOException {
         String name = getName(uuid);

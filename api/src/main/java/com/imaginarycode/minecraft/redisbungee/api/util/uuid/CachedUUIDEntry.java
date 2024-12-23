@@ -13,28 +13,7 @@ package com.imaginarycode.minecraft.redisbungee.api.util.uuid;
 import java.util.Calendar;
 import java.util.UUID;
 
-public class CachedUUIDEntry {
-    private final String name;
-    private final UUID uuid;
-    private final Calendar expiry;
-
-    public CachedUUIDEntry(String name, UUID uuid, Calendar expiry) {
-        this.name = name;
-        this.uuid = uuid;
-        this.expiry = expiry;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public Calendar getExpiry() {
-        return expiry;
-    }
+public record CachedUUIDEntry(String name, UUID uuid, Calendar expiry) {
 
     public boolean expired() {
         return Calendar.getInstance().after(expiry);

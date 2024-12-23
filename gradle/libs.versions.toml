@@ -1,7 +1,7 @@
 [versions]
 guava = "31.1-jre"
 jedis = "5.2.0"
-okhttp = "2.7.5"
+okhttp = "4.12.0"
 configurateV3 = "3.7.3"
 caffeine = "3.1.8"
 adventure = "4.18.0"
@@ -12,13 +12,13 @@ velocity = "3.4.0-SNAPSHOT"
 
 [plugins]
 blossom = { id = "net.kyori.blossom", version = "1.2.0" }
-shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
-run-velocity = { id = "xyz.jpenilla.run-velocity", version = "2.0.0" }
+shadow = { id = "com.gradleup.shadow", version = "8.3.5" }
+run-velocity = { id = "xyz.jpenilla.run-velocity", version = "2.3.1" }
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 jedis = { module = "redis.clients:jedis", version.ref = "jedis" }
-okhttp = { module = "com.squareup.okhttp:okhttp", version.ref = "okhttp" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 configurateV3 = { module = "org.spongepowered:configurate-yaml", version.ref = "configurateV3" }
 caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version.ref = "caffeine" }
 

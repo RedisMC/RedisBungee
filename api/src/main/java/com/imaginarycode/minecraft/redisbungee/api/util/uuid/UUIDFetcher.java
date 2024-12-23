@@ -12,7 +12,7 @@ package com.imaginarycode.minecraft.redisbungee.api.util.uuid;
 
 import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
-import com.squareup.okhttp.*;
+import okhttp3.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,13 +28,7 @@ public class UUIDFetcher implements Callable<Map<String, UUID>> {
     private final List<String> names;
     private final boolean rateLimiting;
     private static final Gson gson = new Gson();
-
-
-    public static void setHttpClient(OkHttpClient httpClient) {
-        UUIDFetcher.httpClient = httpClient;
-    }
-
-    private static OkHttpClient httpClient;
+    private static final OkHttpClient httpClient = new OkHttpClient();
 
     private UUIDFetcher(List<String> names, boolean rateLimiting) {
         this.names = ImmutableList.copyOf(names);

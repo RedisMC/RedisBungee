@@ -25,8 +25,6 @@ import com.imaginarycode.minecraft.redisbungee.api.events.IPlayerLeftNetworkEven
 import com.imaginarycode.minecraft.redisbungee.api.events.IPubSubMessageEvent;
 import com.imaginarycode.minecraft.redisbungee.api.summoners.Summoner;
 import com.imaginarycode.minecraft.redisbungee.api.util.InitialUtils;
-import com.imaginarycode.minecraft.redisbungee.api.util.uuid.NameFetcher;
-import com.imaginarycode.minecraft.redisbungee.api.util.uuid.UUIDFetcher;
 import com.imaginarycode.minecraft.redisbungee.api.util.uuid.UUIDTranslator;
 import com.imaginarycode.minecraft.redisbungee.commands.CommandLoader;
 import com.imaginarycode.minecraft.redisbungee.commands.utils.CommandPlatformHelper;
@@ -34,8 +32,6 @@ import com.imaginarycode.minecraft.redisbungee.events.PlayerChangedServerNetwork
 import com.imaginarycode.minecraft.redisbungee.events.PlayerJoinedNetworkEvent;
 import com.imaginarycode.minecraft.redisbungee.events.PlayerLeftNetworkEvent;
 import com.imaginarycode.minecraft.redisbungee.events.PubSubMessageEvent;
-import com.squareup.okhttp.Dispatcher;
-import com.squareup.okhttp.OkHttpClient;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.bungeecord.BungeeComponentSerializer;
 import net.md_5.bungee.api.ProxyServer;
@@ -72,7 +68,6 @@ public class RedisBungee extends Plugin implements RedisBungeePlugin<ProxiedPlay
     private UUIDTranslator uuidTranslator;
     private RedisBungeeConfiguration configuration;
     private LangConfiguration langConfiguration;
-    private OkHttpClient httpClient;
     private BungeeCommandManager commandManager;
 
     private final Logger logger = LoggerFactory.getLogger("RedisBungee");
@@ -241,11 +236,6 @@ public class RedisBungee extends Plugin implements RedisBungeePlugin<ProxiedPlay
         // cleanup
         this.cleanupTask = getProxy().getScheduler().schedule(this, () -> this.proxyDataManager.correctionTask(), 0, 60, TimeUnit.SECONDS);
         // init the http lib
-        httpClient = new OkHttpClient();
-        Dispatcher dispatcher = new Dispatcher(getExecutorService());
-        httpClient.setDispatcher(dispatcher);
-        NameFetcher.setHttpClient(httpClient);
-        UUIDFetcher.setHttpClient(httpClient);
         InitialUtils.checkRedisVersion(this);
         uuidTranslator = new UUIDTranslator(this);
 

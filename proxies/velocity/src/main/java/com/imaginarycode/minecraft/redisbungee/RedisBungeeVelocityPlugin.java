@@ -35,8 +35,6 @@ import com.imaginarycode.minecraft.redisbungee.events.PlayerChangedServerNetwork
 import com.imaginarycode.minecraft.redisbungee.events.PlayerJoinedNetworkEvent;
 import com.imaginarycode.minecraft.redisbungee.events.PlayerLeftNetworkEvent;
 import com.imaginarycode.minecraft.redisbungee.events.PubSubMessageEvent;
-import com.squareup.okhttp.Dispatcher;
-import com.squareup.okhttp.OkHttpClient;
 import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
@@ -78,7 +76,6 @@ public class RedisBungeeVelocityPlugin implements RedisBungeePlugin<Player>, Con
     private final UUIDTranslator uuidTranslator;
     private RedisBungeeConfiguration configuration;
     private LangConfiguration langConfiguration;
-    private final OkHttpClient httpClient;
 
     private final ProxyDataManager proxyDataManager;
 
@@ -127,11 +124,6 @@ public class RedisBungeeVelocityPlugin implements RedisBungeePlugin<Player>, Con
         };
         this.playerDataManager = new VelocityPlayerDataManager(this);
         uuidTranslator = new UUIDTranslator(this);
-        this.httpClient = new OkHttpClient();
-        Dispatcher dispatcher = new Dispatcher(Executors.newFixedThreadPool(6));
-        this.httpClient.setDispatcher(dispatcher);
-        NameFetcher.setHttpClient(httpClient);
-        UUIDFetcher.setHttpClient(httpClient);
     }
 
 
@@ -300,8 +292,6 @@ public class RedisBungeeVelocityPlugin implements RedisBungeePlugin<Player>, Con
         if (heartbeatTask != null) {
             heartbeatTask.cancel();
         }
-
-
         try {
             this.proxyDataManager.close();
             this.jedisSummoner.close();
@@ -309,13 +299,6 @@ public class RedisBungeeVelocityPlugin implements RedisBungeePlugin<Player>, Con
             throw new RuntimeException(e);
         }
 
-        this.httpClient.getDispatcher().getExecutorService().shutdown();
-        try {
-            logInfo("waiting for httpclient thread-pool termination.....");
-            this.httpClient.getDispatcher().getExecutorService().awaitTermination(20, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         if (commandManager != null) commandManager.unregisterCommands();
         logInfo("RedisBungee shutdown complete");
     }

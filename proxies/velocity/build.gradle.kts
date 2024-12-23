@@ -21,7 +21,7 @@ java {
 
 tasks {
     runVelocity {
-        velocityVersion("3.4.0-SNAPSHOT")
+        velocityVersion(libs.versions.velocity.get())
         environment["REDISBUNGEE_PROXY_ID"] = "velocity-1"
         environment["REDISBUNGEE_NETWORK_ID"] = "dev"
     }
@@ -36,7 +36,7 @@ tasks {
         relocate("redis.clients.jedis", "com.imaginarycode.minecraft.redisbungee.internal.jedis")
         relocate("redis.clients.util", "com.imaginarycode.minecraft.redisbungee.internal.jedisutil")
         relocate("org.apache.commons.pool", "com.imaginarycode.minecraft.redisbungee.internal.commonspool")
-        relocate("com.squareup.okhttp", "com.imaginarycode.minecraft.redisbungee.internal.okhttp")
+        relocate("com.squareup.okhttp3", "com.imaginarycode.minecraft.redisbungee.internal.okhttp3")
         relocate("okio", "com.imaginarycode.minecraft.redisbungee.internal.okio")
         relocate("org.json", "com.imaginarycode.minecraft.redisbungee.internal.json")
         // acf shade
