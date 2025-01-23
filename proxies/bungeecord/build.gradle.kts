@@ -60,6 +60,8 @@ tasks {
         relocate("com.github.benmanes.caffeine", "com.imaginarycode.minecraft.redisbungee.internal.caffeine")
         // acf shade
         relocate("co.aikar.commands", "com.imaginarycode.minecraft.redisbungee.internal.acf.commands")
+        // adventure :/
+        relocate("net.kyori", "com.imaginarycode.minecraft.redisbungee.internal.net.kyori")
 
     }
 
